@@ -29,7 +29,6 @@ Thumbs.db
 
 # Environment variables
 .env
-.env.*
 
 # Logs
 *.log
@@ -58,3 +57,8 @@ coverage.out
 
 # Temporary
 tmp/
+
+# Env
+.env
+env
+env-local
