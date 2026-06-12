@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmed — SoundSpace</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #0A0A0A;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: #C8FF00;
+            padding: 32px 40px;
+            text-align: center;
+        }
+
+        .header-logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 0.15em;
+        }
+
+        .header-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            color: #000;
+            opacity: 0.6;
+            letter-spacing: 0.3em;
+            margin-top: 4px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: #111111;
+            border: 1px solid #1E1E1E;
+            border-top: none;
+            padding: 40px 40px 32px;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title span {
+            color: #C8FF00;
+        }
+
+        .hero-sub {
+            color: #666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* ── Booking Code Badge ── */
+        .code-badge {
+            display: inline-block;
+            margin: 24px auto 0;
+            background: #0A0A0A;
+            border: 1px solid #C8FF00;
+            padding: 12px 28px;
+            font-family: 'Space Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #C8FF00;
+            letter-spacing: 0.2em;
+        }
+
+        /* ── Details Card ── */
+        .card {
+            margin: 0;
+            background: #0D0D0D;
+            border: 1px solid #1E1E1E;
+            border-top: none;
+            padding: 32px 40px;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            color: #C8FF00;
+            letter-spacing: 0.3em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #1E1E1E;
+        }
+
+        /* ── Detail Table ── */
+        .detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+        }
+
+        .detail-table tr {
+            border-bottom: 1px solid #141414;
+        }
+
+        .detail-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .detail-table td {
+            padding: 11px 0;
+            vertical-align: middle;
+        }
+
+        .detail-key {
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+            width: 1%;
+            padding-right: 0;
+        }
+
+        .detail-sep {
+            color: #333;
+            padding: 11px 16px 11px 12px;
+            white-space: nowrap;
+            width: 1%;
+        }
+
+        .detail-value {
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+        .detail-value.accent {
+            color: #C8FF00;
+            font-weight: 700;
+        }
+
+        /* ── Info Box ── */
+        .info-box {
+            background: #C8FF00;
+            padding: 20px 40px;
+            margin: 0;
+        }
+
+        .info-box p {
+            color: #000;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .info-box strong {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            margin-bottom: 4px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: #050505;
+            border: 1px solid #1A1A1A;
+            border-top: none;
+            padding: 24px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #333;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: #C8FF00;
+            text-decoration: none;
+        }
+
+        .divider {
+            height: 1px;
+            background: #1A1A1A;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body style="background: #0A0A0A;">
+    <div class="wrapper">
+
+        <div class="header">
+            <div class="header-logo">SOUNDSPACE</div>
+            <div class="header-sub">STUDIO MUSIK PROFESIONAL BANDUNG</div>
+        </div>
+
+        <div class="hero">
+            <div class="hero-icon">🎸</div>
+            <div class="hero-title">BOOKING <span>CONFIRMED</span></div>
+            <div class="hero-sub">Hei {{.CustomerName}}, sesi kamu sudah terkonfirmasi!</div>
+            <div class="code-badge">{{.BookingID}}</div>
+        </div>
+
+        <div class="card">
+            <div class="section-label">// DETAIL BOOKING</div>
+
+            <table class="detail-table">
+                <tr>
+                    <td class="detail-key">Studio</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value">{{.StudioName}}</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Tanggal</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value">{{.Tanggal}}</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Jam Mulai</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value">{{.JamMulai}} WIB</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Jam Selesai</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value">{{.JamSelesai}} WIB</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Durasi</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value">{{.Durasi}} Jam</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Total Bayar</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value accent">Rp {{.TotalBiaya}}</td>
+                </tr>
+                <tr>
+                    <td class="detail-key">Status</td>
+                    <td class="detail-sep">:</td>
+                    <td class="detail-value accent">&#10003; CONFIRMED</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <strong>// INSTRUKSI KEDATANGAN</strong>
+            <p>
+                Tunjukkan kode booking <strong style="font-family:monospace;">{{.BookingID}}</strong>
+                kepada staff saat tiba di studio. Harap datang 5–10 menit sebelum sesi dimulai.
+                Alamat: Jl. Sunda No. 12, Bandung.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>
+                Pertanyaan? Hubungi kami di <a href="mailto:hello@soundspace.id">hello@soundspace.id</a><br>
+                atau via WhatsApp <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+            </p>
+            <p style="margin-top: 12px;">
+                &copy; {{.CurrentYear}} SoundSpace. All rights reserved.<br>
+                <a href="{{.AppURL}}">soundspace.id</a>
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

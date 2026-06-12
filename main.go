@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"kuliah-web-bsm-go/bootstrap"
+)
 
-func main () {
-	fmt.Println("Hello World!")
+func main() {
+	app := bootstrap.Boot()
+
+	app.Start()
 }
