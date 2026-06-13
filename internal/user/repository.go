@@ -12,7 +12,7 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) GetAll() ([]User, error) {
+func (r *Repository) FindAll() ([]User, error) {
 
 	var users []User
 
@@ -21,15 +21,23 @@ func (r *Repository) GetAll() ([]User, error) {
 	return users, err
 }
 
-func (r *Repository) FindByID(id int) (*User, error) {
+func (r *Repository) FindByID(id uint) (*User, error) {
 
 	var user User
 
 	err := r.db.First(&user, id).Error
 
-	if err != nil {
-		return nil, err
-	}
+	return &user, err
+}
 
-	return &user, nil
+func (r *Repository) Create(user *User) error {
+	return r.db.Create(user).Error
+}
+
+func (r *Repository) Update(user *User) error {
+	return r.db.Save(user).Error
+}
+
+func (r *Repository) Delete(id uint) error {
+	return r.db.Delete(&User{}, id).Error
 }
